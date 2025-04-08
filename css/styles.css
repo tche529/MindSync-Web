@@ -134,15 +134,15 @@ nav {
   display: flex;
   align-items: center;
   margin-bottom: 40px;
-  background: linear-gradient(135deg, #E0F7FA, #F3E5F5); /* 柔和渐变背景 */
+  background: linear-gradient(135deg, #E0F7FA, #F3E5F5); 
   border-radius: 12px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .innovation-group:hover {
-  transform: translateY(-5px); /* 悬停时轻微放大 */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
 }
 
 .innovation-group img {
@@ -157,7 +157,7 @@ nav {
 
 .innovation-group h3 {
   font-size: 24px;
-  color: #0288d1; /* 标题颜色 */
+  color: #0288d1; 
   margin-bottom: 15px;
 }
 
@@ -169,32 +169,119 @@ nav {
 .innovation-group li {
   margin-bottom: 15px;
   display: flex;
-  flex-direction: row; /* 水平排列 */
-  align-items: flex-start; /* 顶部对齐，确保 <p> 从顶部开始 */
+  flex-direction: row; 
+  align-items: flex-start; 
 }
 
 .innovation-group i {
   font-size: 20px;
-  color: #0288d1; /* 图标颜色 */
+  color: #0288d1; 
   margin-right: 10px;
 }
 
 .innovation-group strong {
   display: inline-block;
-  width: 250px; /* 固定宽度，可根据需要调整 */
+  width: 250px; 
   font-size: 18px;
   font-weight: bold;
-  color: #0277bd; /* 深蓝色 */
+  color: #0277bd; 
   text-align: left;
-  margin-bottom: 5px; /* 与 <p> 的间距 */
+  margin-bottom: 5px; 
 }
 
 .innovation-group p {
   font-size: 16px;
-  color: #555; /* 描述文字颜色 */
-  margin: 0; /* 与图标对齐 */
-  flex: 1; /* 占据剩余空间 */
-  padding-left: 0; /* 移除 padding-left，间距由 strong 的 margin-right 控制 */
+  color: #555; 
+  margin: 0; 
+  flex: 1; 
+  padding-left: 0; 
+}
+
+.our-mission {
+  position: relative;
+  width: 100%;
+  height: auto; /* Adjust to 'auto' if you want content-driven height */
+  color: white;
+  overflow: hidden;
+}
+
+.background-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+        linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.6)),
+        url('../assets/images/mission-image.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(12px) brightness(0.7); /* Blur and darken for readability */
+  z-index: 1;
+}
+
+.mission-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+  text-align: center;
+  backdrop-filter: blur(4px); /* Subtle blur behind text */
+  background: rgba(0, 0, 0, 0.2); /* Semi-transparent overlay */
+  border-radius: 1rem;
+}
+
+.mission-content h2 {
+  font-size: 2.5rem;
+  color: #00cfff; /* Tech-inspired cyan */
+  margin-bottom: 1rem;
+}
+
+.mission-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+
+.content-wrapper {
+  display: flex;
+  align-items: flex-start; 
+  gap: 20px; 
+}
+
+.text-content {
+  flex: 2; 
+}
+
+
+.image-content {
+  margin-top: 10%;
+  flex: 1; 
+}
+
+
+.image-content img {
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 5px; 
+}
+
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 15px;
+}
+
+
+.approach-item {
+  padding: 10px;
+}
+
+.slogan p{
+  background: linear-gradient( #00d4ff, #ff4081);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 footer {
@@ -205,7 +292,8 @@ footer {
   background: rgba(10, 10, 10, 0.9);
 }
 
-/* 响应式设计 */
+
+
 @media (max-width: 768px) {
   .hero h1 {
       font-size: 36px;
