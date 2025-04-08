@@ -19,6 +19,17 @@ navItems.forEach(item => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    }
+});
+
 // 语言切换
 let currentLang = 'en';
 const langToggle = document.getElementById('lang-toggle');

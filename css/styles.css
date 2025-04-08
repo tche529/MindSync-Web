@@ -29,6 +29,7 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -44,6 +45,15 @@ nav {
 
 .logo:hover {
   transform: scale(1.05);
+}
+
+.hamburger {
+  display: none; /* 大屏幕隐藏汉堡图标 */
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
 }
 
 .nav-links {
@@ -96,7 +106,7 @@ nav {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, #E0F7FA, #F3E5F5); 
   border-radius: 12px;
   padding: 40px;
   margin: 20px 0;
@@ -115,9 +125,19 @@ nav {
   margin-bottom: 20px;
 }
 
-.card p {
+.card p
+ {
   font-size: 16px;
-  color: #b0b0b0;
+  color: #444141;
+}
+.why-apple-grid h3{
+  color: #0277bd; 
+}
+
+.vision-list {
+  list-style: none; 
+  padding-left: 2em; 
+  color: #444141;
 }
 
 .contact a {
@@ -247,10 +267,12 @@ nav {
   display: flex;
   align-items: flex-start; 
   gap: 20px; 
+  
 }
 
 .text-content {
   flex: 2; 
+  color: #0277bd;
 }
 
 
@@ -277,6 +299,7 @@ nav {
 .approach-item {
   padding: 10px;
 }
+
 
 .slogan p{
   background: linear-gradient( #00d4ff, #ff4081);
@@ -309,6 +332,111 @@ footer {
 
   .nav-links {
       gap: 15px;
+  }
+}
+@media (max-width: 480px) {
+  /* 导航栏 */
+  .hamburger {
+    display: block; /* 显示汉堡图标 */
+    margin-left: 50%;
+  }
+
+  .nav-links {
+      display: none; /* 默认隐藏导航链接 */
+      flex-direction: column; /* 垂直排列 */
+      position: absolute; /* 覆盖在页面上 */
+      top: 60px; /* 根据 header 高度调整 */
+      left: 0;
+      width: 100%;
+      background: #333; /* 与 header 一致 */
+      padding: 10px 0;
+  }
+
+  .nav-links.active {
+      display: flex; /* 点击后显示 */
+  }
+
+  .nav-links a {
+      padding: 10px 20px; /* 增加点击区域 */
+      text-align: center; /* 文字居中 */
+  }
+  .logo {
+    font-size: 24px;
+  }
+  header {
+    padding: 10px 0;
+  }
+
+  /* 英雄区 */
+  .hero h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  .hero p {
+    font-size: 14px;
+    max-width: 90%;
+  }
+
+  /* 卡片 */
+  .card {
+    padding: 15px;
+    margin: 10px 0;
+  }
+  .card h2 {
+    font-size: 24px;
+  }
+  .card p {
+    font-size: 14px;
+  }
+
+  /* 创新组 */
+  .innovation-group {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .innovation-group img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  .innovation-group h3 {
+    font-size: 20px;
+  }
+  .innovation-group strong {
+    width: auto;
+    font-size: 16px;
+  }
+  .innovation-group p {
+    font-size: 14px;
+  }
+  .innovation-group li {
+    flex-direction: column; 
+  }
+
+  /* 内容包装器 */
+  .content-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .image-content {
+    margin-top: 15px;
+  }
+
+  /* 方法网格 */
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* 通用调整 */
+  .container {
+    padding: 0 15px;
+  }
+  .section {
+    padding: 80px 0 40px;
+  }
+  .nav-links a, .contact a {
+    padding: 10px;
   }
 }
 
