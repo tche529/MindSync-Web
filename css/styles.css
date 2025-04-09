@@ -106,13 +106,18 @@ nav {
 }
 
 .card {
-  background: linear-gradient(135deg, #E0F7FA, #F3E5F5); 
+  background: linear-gradient(135deg, #000428, #004e92);
   border-radius: 12px;
   padding: 40px;
   margin: 20px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
+
+
 
 .card:hover {
   transform: translateY(-5px);
@@ -128,7 +133,7 @@ nav {
 .card p
  {
   font-size: 16px;
-  color: #444141;
+  color: #f2ecec;
 }
 .why-apple-grid h3{
   color: #0277bd; 
@@ -137,7 +142,7 @@ nav {
 .vision-list {
   list-style: none; 
   padding-left: 2em; 
-  color: #444141;
+  color: #f2ecec;
 }
 
 .contact a {
@@ -864,7 +869,7 @@ img {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
   margin: 0 2px;
-  color: #5e5e61;
+  color: #c8c8e2;
 }
 
 .biometric-item .value {
@@ -1323,7 +1328,7 @@ img {
 .percentage-bar {
   width: 80px;
   height: 6px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(236, 225, 225, 0.056);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -1428,84 +1433,34 @@ img {
     font-size: 14px;
 }
 
-/* 欢迎模态框样式 */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    backdrop-filter: blur(5px);
+/* 外部容器样式 */
+.ai-list-container {
+  display: flex;              
+  justify-content: space-between; 
+  margin-top: 20px;           
 }
 
-.modal-content {
-    background: rgba(18, 30, 66, 0.95);
-    border-radius: 20px;
-    width: 90%;
-    max-width: 400px;
-    padding: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* 每列样式 */
+.ai-column {
+  width: 30%;                 
+  text-align: center;         
 }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+/* 列表样式 */
+.ai-column ul {
+  list-style-type: none;      
+  padding: 0;                 
+  margin: 0;                  
 }
 
-.modal-header h2 {
-    color: #e1e6ff;
-    font-size: 24px;
-    font-weight: 600;
+/* 列表项样式 */
+.ai-column li span{
+  margin-bottom: 10px;        
+  font-size: 1.1em;           
+  color: #b7d6ef;                
 }
 
-.close-modal {
-    background: none;
-    border: none;
-    color: #a8b0cf;
-    cursor: pointer;
-    font-size: 20px;
-    transition: color 0.3s ease;
-}
 
-.close-modal:hover {
-    color: #e1e6ff;
-}
-
-.modal-body {
-    margin-bottom: 25px;
-}
-
-.modal-body p {
-    color: #a8b0cf;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.modal-footer {
-    text-align: center;
-}
-
-.modal-button {
-    background: linear-gradient(135deg, #4a5dff, #7b5dff);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.modal-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(74, 93, 255, 0.4);
+.ai-column:not(:last-child) {
+  margin-right: 20px;         
 }
