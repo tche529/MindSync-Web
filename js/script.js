@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const trendImages = {
             'day': 'assets/images/trend-chart-day.png',
             'week': 'assets/images/trend-chart-week.png',
-            'month': 'assets/images/Emotion_Trends_img.png'
+            'month': 'assets/images/trend-chart-month.png'
         };
         
         // 设置默认图片

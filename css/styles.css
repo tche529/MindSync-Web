@@ -584,21 +584,22 @@ img {
   height: 200px !important;
   position: relative;
   margin: 10px 0;
-  background: rgba(18, 28, 66, 0.3);
+  background: rgba(18, 28, 66, 0);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-#trendImg {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
+.emotion-chart img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 保持比例，填充容器，多余部分裁剪 */
+  position: absolute; /* 脱离 flex 布局，确保填满 */
+  top: 0;
+  left: 0;
 }
+
 
 .privacy-notice, .data-sync {
   padding: 15px;
@@ -1255,15 +1256,6 @@ img {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.emotion-chart {
-  height: 200px !important;
-  position: relative;
-  margin: 10px 0;
-  background: rgba(18, 28, 66, 0.3);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
 
 /* Emotion Triggers Card 样式 */
 .emotion-triggers-card {
