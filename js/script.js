@@ -718,3 +718,102 @@ document.addEventListener('DOMContentLoaded', function() {
     
     addTwinkleEffect();
 });
+
+// 语音交互功能
+const voiceInteraction = document.getElementById('voiceInteraction');
+const voiceActive = document.getElementById('voiceActive');
+const closeVoice = document.querySelector('.close-voice');
+const voiceWave = document.querySelector('.voice-wave');
+const voiceText = document.querySelector('.voice-text');
+
+// 欢迎模态框
+const welcomeModal = document.getElementById('welcomeModal');
+const closeModal = document.querySelector('.close-modal');
+const modalButton = document.querySelector('.modal-button');
+
+// 语音交互按钮点击事件
+voiceInteraction.addEventListener('click', () => {
+    voiceActive.classList.toggle('show');
+    if (voiceActive.classList.contains('show')) {
+        startVoiceRecognition();
+    } else {
+        stopVoiceRecognition();
+    }
+});
+
+// 关闭语音面板
+closeVoice.addEventListener('click', () => {
+    voiceActive.classList.remove('show');
+    stopVoiceRecognition();
+});
+
+// 语音识别功能
+let recognition;
+function startVoiceRecognition() {
+    if ('webkitSpeechRecognition' in window) {
+        recognition = new webkitSpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        
+        recognition.onstart = () => {
+            voiceWave.style.background = 'url("../assets/images/voice-wave.gif") center/contain no-repeat';
+            voiceText.textContent = '正在聆听...';
+        };
+        
+        recognition.onresult = (event) => {
+            const transcript = Array.from(event.results)
+                .map(result => result[0])
+                .map(result => result.transcript)
+                .join('');
+            
+            voiceText.textContent = transcript;
+        };
+        
+        recognition.onerror = (event) => {
+            console.error('语音识别错误:', event.error);
+            voiceText.textContent = '发生错误，请重试';
+        };
+        
+        recognition.onend = () => {
+            voiceWave.style.background = 'none';
+            voiceText.textContent = '点击麦克风开始说话';
+        };
+        
+        recognition.start();
+    } else {
+        voiceText.textContent = '您的浏览器不支持语音识别';
+    }
+}
+
+function stopVoiceRecognition() {
+    if (recognition) {
+        recognition.stop();
+    }
+}
+
+// 欢迎模态框功能
+function showWelcomeModal() {
+    welcomeModal.classList.add('show');
+}
+
+function hideWelcomeModal() {
+    welcomeModal.classList.remove('show');
+}
+
+// 关闭模态框
+closeModal.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hideWelcomeModal();
+});
+
+modalButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hideWelcomeModal();
+});
+
+// 点击模态框外部关闭
+welcomeModal.addEventListener('click', (e) => {
+    if (e.target === welcomeModal) {
+        hideWelcomeModal();
+    }
+});

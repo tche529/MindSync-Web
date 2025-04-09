@@ -1345,3 +1345,175 @@ img {
 .sync-message {
   animation: fadeIn 0.5s;
 }
+
+/* 语音交互按钮样式 */
+.voice-interaction {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4a5dff, #7b5dff);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(74, 93, 255, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.voice-interaction i {
+    color: white;
+    font-size: 24px;
+}
+
+.voice-interaction:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(74, 93, 255, 0.4);
+}
+
+/* 语音交互面板样式 */
+.voice-active {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    background: rgba(18, 30, 66, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.voice-active.show {
+    display: block;
+}
+
+.voice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.voice-header span {
+    color: #e1e6ff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.close-voice {
+    background: none;
+    border: none;
+    color: #a8b0cf;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.close-voice:hover {
+    color: #e1e6ff;
+}
+
+.voice-content {
+    text-align: center;
+}
+
+.voice-wave {
+    width: 100%;
+    height: 100px;
+    background: url('../assets/images/voice-wave.gif') center/contain no-repeat;
+    margin-bottom: 15px;
+}
+
+.voice-text {
+    color: #a8b0cf;
+    font-size: 14px;
+}
+
+/* 欢迎模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: rgba(18, 30, 66, 0.95);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: #e1e6ff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #a8b0cf;
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #e1e6ff;
+}
+
+.modal-body {
+    margin-bottom: 25px;
+}
+
+.modal-body p {
+    color: #a8b0cf;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.modal-button {
+    background: linear-gradient(135deg, #4a5dff, #7b5dff);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(74, 93, 255, 0.4);
+}
