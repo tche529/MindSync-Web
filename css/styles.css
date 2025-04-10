@@ -95,6 +95,7 @@ nav {
   margin-bottom: 20px;
   background: linear-gradient(90deg, #00d4ff, #ff4081);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -146,15 +147,44 @@ nav {
 }
 
 .contact a {
-  color: #ff4081;
-  font-size: 18px;
+  color: #00d4ff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 18px;
+  display: inline-block;
+  margin: 10px 0;
+  transition: all 0.3s ease;
 }
 
 .contact a:hover {
-  color: #00d4ff;
+  color: #ff4081;
 }
+
+/* LinkedIn链接样式 */
+.social-links {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links p {
+  margin-bottom: 15px;
+}
+
+.linkedin-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linkedin-link i {
+  font-size: 24px;
+  color: #0077b5; /* LinkedIn蓝色 */
+}
+
+.linkedin-link:hover i {
+  color: #ff4081;
+}
+
 .innovation-group {
   display: flex;
   align-items: center;
@@ -309,6 +339,7 @@ nav {
 .slogan p{
   background: linear-gradient( #00d4ff, #ff4081);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -443,6 +474,23 @@ footer {
   .nav-links a, .contact a {
     padding: 10px;
   }
+  
+  /* 创始人故事响应式调整 */
+  .founder-story .story-section {
+    padding: 15px;
+  }
+  
+  .founder-story h2.handwritten,
+  .founder-story h3.handwritten {
+    font-size: 22px;
+  }
+  
+  .story-paragraph p, 
+  .story-list li,
+  .founder-quote p,
+  .founder-note p {
+    font-size: 14px;
+  }
 }
 
 /* 平滑滚动 */
@@ -452,7 +500,271 @@ html {
 
 /* 图片懒加载 */
 img {
-  loading: lazy;
+  /* loading属性应该在HTML中使用，而不是CSS */
+}
+
+/* 创始人故事模块样式 */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+.founder-story {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #091133, #0d254a);
+  margin: 40px 0;
+  padding: 0;
+}
+
+.starry-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 40px 60px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 20px 50px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 30px 100px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 60px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 110px 80px, rgba(255,255,255,0.7), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 10px 20px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.3;
+  z-index: 1;
+  animation: twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.founder-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.handwritten {
+  font-family: 'Dancing Script', cursive;
+  color: #00d4ff;
+  text-align: center;
+  margin: 30px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in 1s forwards;
+}
+
+h2.handwritten {
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00d4ff, #ff4081);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h3.handwritten {
+  font-size: 32px;
+  margin: 25px 0;
+  color: #6e7eff;
+}
+
+.story-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(2px);
+}
+
+.story-paragraph {
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in 1s forwards;
+  animation-delay: 0.2s;
+}
+
+.story-paragraph p {
+  line-height: 1.8;
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+.story-highlight {
+  padding: 15px 25px;
+  margin: 30px 0;
+  border-left: 3px solid #00d4ff;
+  background: rgba(0, 212, 255, 0.05);
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slide-in 1s forwards;
+  animation-delay: 0.4s;
+}
+
+.story-highlight p {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+
+.story-list {
+  margin: 20px 0 20px 20px;
+  opacity: 0;
+  animation: fade-in 1s forwards;
+  animation-delay: 0.6s;
+}
+
+.story-list li {
+  padding: 10px 0;
+  line-height: 1.7;
+  color: #e0e0e0;
+}
+
+.story-list li strong {
+  color: #ff4081;
+}
+
+.founder-quote, .founder-note {
+  position: relative;
+  padding: 20px 30px;
+  margin: 30px 0;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  font-style: italic;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: scale-in 1s forwards;
+  animation-delay: 0.8s;
+}
+
+.founder-quote:before, .founder-note:before {
+  content: "“";
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.founder-quote:after, .founder-note:after {
+  content: "”";
+  position: absolute;
+  bottom: -60px;
+  right: 10px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.founder-quote p, .founder-note p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #e0e0e0;
+}
+
+.founder-note {
+  background: linear-gradient(135deg, rgba(110, 126, 255, 0.1), rgba(0, 212, 255, 0.05));
+  border: 1px solid rgba(110, 126, 255, 0.2);
+}
+
+.divider {
+  height: 1px;
+  margin: 40px auto;
+  width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* 动画效果 */
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  top: 10%;
+  left: 10%;
+  animation: shoot 4s linear infinite;
+  z-index: 1;
+}
+
+.shooting-star:nth-child(2) {
+  top: 30%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-45deg);
+    width: 2px;
+  }
+  1% {
+    opacity: 1;
+    width: 2px;
+  }
+  5% {
+    opacity: 1;
+    width: 100px;
+    transform: translate(100px, 100px) rotate(-45deg);
+  }
+  10% {
+    opacity: 0;
+    width: 0;
+    transform: translate(200px, 200px) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(200px, 200px) rotate(-45deg);
+  }
+}
+
+/* 滚动动画类 */
+.animate-in {
+  animation: fade-in 1s forwards !important;
+}
+
+.story-highlight.animate-in {
+  animation: slide-in 1s forwards !important;
+}
+
+.founder-quote.animate-in, 
+.founder-note.animate-in {
+  animation: scale-in 1s forwards !important;
 }
 
 /* iOS Demo星空色系样式 */
@@ -547,6 +859,7 @@ img {
 #ios-demo .hero h1 {
   background: linear-gradient(90deg, #6e7eff, #7b5dff);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 

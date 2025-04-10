@@ -66,6 +66,65 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // 创始人故事模块滚动动画
+    function initFounderStoryAnimations() {
+        const storyElements = document.querySelectorAll('.founder-story .story-paragraph, .founder-story .story-highlight, .founder-story .story-list, .founder-story .founder-quote, .founder-story .founder-note, .founder-story h2.handwritten, .founder-story h3.handwritten');
+        
+        // 创建Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // 当元素进入视图时
+                if (entry.isIntersecting) {
+                    // 移除预设的opacity和transform，让CSS动画生效
+                    entry.target.style.opacity = "";
+                    entry.target.style.transform = "";
+                    // 添加动画类
+                    entry.target.classList.add('animate-in');
+                    // 已观察到的元素不再需要观察
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            // 当元素出现20%时触发
+            threshold: 0.2
+        });
+        
+        // 为每个元素添加初始样式并观察
+        storyElements.forEach(element => {
+            // 阻止CSS动画自动播放
+            element.style.opacity = "0";
+            element.style.animation = "none";
+            // 开始观察元素
+            observer.observe(element);
+        });
+    }
+    
+    // 初始化创始人故事动画
+    const founderSection = document.getElementById('founder');
+    if (founderSection) {
+        // 当Founder部分显示时初始化动画
+        navItems.forEach(item => {
+            if (item.getAttribute('href') === '#founder') {
+                item.addEventListener('click', () => {
+                    // 短暂延迟确保DOM已更新
+                    setTimeout(initFounderStoryAnimations, 100);
+                });
+            }
+        });
+        
+        // 如果页面直接加载到Founder部分，也初始化动画
+        if (window.location.hash === '#founder' || founderSection.classList.contains('active')) {
+            setTimeout(initFounderStoryAnimations, 100);
+        }
+    }
+    
+    // 当用户点击导航链接时，如果目标是创始人部分，初始化动画
+    document.querySelectorAll('.nav-item[href="#founder"]').forEach(link => {
+        link.addEventListener('click', () => {
+            setTimeout(initFounderStoryAnimations, 100);
+        });
+    });
+    
     // 情绪词云初始化 - 高级版
     const canvas = document.getElementById('emotionCanvas');
     if (canvas) {
