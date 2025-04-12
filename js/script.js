@@ -672,11 +672,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // iOS设备语言切换
+    // iOS底部标签栏交互
+    function initIOSTabBar() {
+        const tabItems = document.querySelectorAll('.ios-tab-bar .tab-item');
+        const tabContents = document.querySelectorAll('.device-content .content');
+        
+        tabItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // 移除所有标签的激活状态
+                tabItems.forEach(tab => tab.classList.remove('active'));
+                // 添加当前标签的激活状态
+                item.classList.add('active');
+                
+                // 获取目标内容区域ID
+                const targetId = item.getAttribute('data-tab');
+                
+                // 隐藏所有内容区域
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // 显示目标内容区域
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    }
+    
+    // 初始化iOS底部标签栏
+    initIOSTabBar();
+    
+    // 支持iOS底部标签栏的语言切换
     const iosLangSwitcher = document.querySelector('.language-switcher');
     if (iosLangSwitcher) {
         iosLangSwitcher.addEventListener('click', () => {
             const isEnglish = iosLangSwitcher.textContent === 'EN';
+            
+            // 切换iOS底部标签栏的文本
+            document.querySelectorAll('.ios-tab-bar .tab-label').forEach(el => {
+                el.textContent = isEnglish ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+            });
             
             // 切换iOS Demo内部的文本
             document.querySelectorAll('.device-content [data-en]').forEach(el => {

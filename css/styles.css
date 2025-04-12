@@ -498,10 +498,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 图片懒加载 */
-img {
-  /* loading属性应该在HTML中使用，而不是CSS */
-}
 
 /* 创始人故事模块样式 */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
@@ -649,7 +645,7 @@ h3.handwritten {
 }
 
 .founder-quote:before, .founder-note:before {
-  content: "“";
+  content: "'";
   position: absolute;
   top: -20px;
   left: 10px;
@@ -659,7 +655,7 @@ h3.handwritten {
 }
 
 .founder-quote:after, .founder-note:after {
-  content: "”";
+  content: "'";
   position: absolute;
   bottom: -60px;
   right: 10px;
@@ -889,175 +885,36 @@ h3.handwritten {
 }
 
 .ios-device {
-  background: #0a1128;
-  border: 2px solid #4a5dff;
-  box-shadow: 0 0 20px rgba(74, 93, 255, 0.3), 0 0 30px rgba(123, 93, 255, 0.2);
-}
-
-.device-frame {
-  background: #0a1128;
-}
-
-.emotion-chart {
-  height: 200px !important;
-  position: relative;
-  margin: 10px 0;
-  background: rgba(18, 28, 66, 0);
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.emotion-chart img {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* 保持比例，填充容器，多余部分裁剪 */
-  position: absolute; /* 脱离 flex 布局，确保填满 */
-  top: 0;
-  left: 0;
-}
-
-
-.privacy-notice, .data-sync {
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #5e5e61;
-}
-
-.privacy-notice p, .data-sync p {
-  margin-bottom: 10px;
-  color: #5e5e61;
-  font-size: 10px;
-}
-
-.data-sync-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.sync-button {
-  flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 10px;
-  transition: all 0.3s ease;
-}
-
-.agree-button {
-  background-color: #4a5dff;
-  color: white;
-}
-
-.disagree-button {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #e1e6ff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.agree-button:hover {
-  background-color: #6e7eff;
-}
-
-.disagree-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .ios-features {
-    margin-top: 30px;
-  }
-  
-  .ios-device {
-    width: 280px;
-    height: 560px;
-  }
-}
-
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background-color: white;
-  z-index: 1;
-}
-
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.chart-legend {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.legend-color {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.legend-label {
-  font-size: 12px;
-  color: #5e5e61;
-}
-
-.sync-message {
-  animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* iPhone 16 Pro 样式优化 */
-.ios-device {
-  width: 300px;
-  height: 600px;
-  background: #0a1128;
+  max-width: 350px;
+  height: 700px;
+  margin: 0 auto;
   border-radius: 40px;
+  background: #000;
   padding: 10px;
+  box-shadow: 0 0 30px rgba(0, 255, 127, 0.2);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(0, 255, 127, 0.3);
 }
 
 .device-frame {
   width: 100%;
   height: 100%;
-  border-radius: 32px;
+  border-radius: 30px;
   overflow: hidden;
+  background: linear-gradient(135deg, #0a1128, #001F3F);
   position: relative;
 }
 
+.device-frame .content {
+  color: #f0f0f0; 
+}
 .device-content {
-  width: 100%;
+  position: relative;
   height: 100%;
+  padding-bottom: 60px; 
   overflow-y: auto;
-  padding: 10px;
 }
 
 .ios-header {
@@ -1226,6 +1083,7 @@ h3.handwritten {
 
 .intervention-name {
   font-size: 12px;
+  color: #a8b0cf;
 }
 
 .settings-list {
@@ -1242,7 +1100,7 @@ h3.handwritten {
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
-  color: #5e5e61;
+  color: #e9e9f1;
 }
 
 .settings-label {
@@ -1591,6 +1449,7 @@ h3.handwritten {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  
 }
 
 .trigger-item {
@@ -1600,6 +1459,7 @@ h3.handwritten {
   border-radius: 10px;
   padding: 12px;
   transition: transform 0.3s ease;
+  
 }
 
 .trigger-item:hover {
@@ -1614,7 +1474,7 @@ h3.handwritten {
 .trigger-name {
   font-size: 14px;
   font-weight: 500;
-  color: #5e5e61;
+  color: #d8d8f0;
   margin-bottom: 4px;
 }
 
@@ -1776,4 +1636,232 @@ h3.handwritten {
 
 .ai-column:not(:last-child) {
   margin-right: 20px;         
+}
+
+/* iOS 底部标签栏样式 */
+.ios-tab-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to bottom, #001F3F, #001A33);
+  border-top: 1px solid rgba(0, 255, 127, 0.1);
+  z-index: 100;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 255, 127, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-item.active::before {
+  opacity: 1;
+}
+
+.tab-icon {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3px;
+  transition: all 0.2s ease;
+}
+
+.tab-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+}
+
+.tab-item.active .tab-icon {
+  color: #00FF7F;
+  transform: scale(1.1);
+}
+
+.tab-item.active .tab-label {
+  color: #00FF7F;
+}
+
+/* 设备内容调整 */
+.device-content {
+  position: relative;
+  height: 100%;
+  padding-bottom: 60px; /* 为底部标签腾出空间 */
+  overflow-y: auto;
+}
+
+/* 内容容器调整 */
+#emotions-tab-content,
+#trends-tab-content,
+#data-tab-content,
+#settings-tab-content {
+  height: calc(100% - 60px);
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+/* iOS图标样式 */
+.tab-icon .fas {
+  font-size: 22px;
+}
+
+.tab-item.active .tab-icon .fas {
+  filter: drop-shadow(0 0 3px rgba(0, 255, 127, 0.5));
+}
+
+/* 滚动条样式 */
+.device-content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.device-content::-webkit-scrollbar-track {
+  background: rgba(0, 31, 63, 0.3);
+}
+
+.device-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 127, 0.5);
+  border-radius: 10px;
+}
+
+/* 内容切换过渡效果 */
+.content {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 恢复emotion-chart样式 */
+.emotion-chart {
+  width: 100%;
+  height: auto;
+  object-fit: contain; 
+  display: block;
+  min-width: 100%;
+}
+
+.emotion-chart img {
+  height: 300px;
+  object-fit: contain;
+}
+
+/* 恢复chart-legend样式 */
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-label {
+  font-size: 12px;
+  color: #5e5e61;
+}
+
+/* 恢复privacy-notice和data-sync样式 */
+.privacy-notice, .data-sync {
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #5e5e61;
+}
+
+.privacy-notice p, .data-sync p {
+  margin-bottom: 10px;
+  color: #5e5e61;
+  font-size: 10px;
+}
+
+.data-sync-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sync-button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.3s ease;
+}
+
+.agree-button {
+  background-color: #4a5dff;
+  color: white;
+}
+
+.disagree-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e1e6ff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.agree-button:hover {
+  background-color: #6e7eff;
+}
+
+.disagree-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 设备内容样式调整 */
+.device-content {
+  padding: 10px 10px 60px 10px;
+  height: 100%;
+}
+
+.device-content .card {
+  margin: 10px 0;
+  padding: 15px;
+}
+
+.device-content h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.device-content h2 span {
+  color: #e1e6ff;
 }
